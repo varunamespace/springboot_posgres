@@ -19,7 +19,7 @@ public class BookmarkController {
     private final BookmarkService bookmarkService;
     @RequestMapping("/index")
     public String helloBookmark(){
-        return "Hello bookmark";
+        return "Hello bookmarks";
     }
     @RequestMapping("/bookmarks")
     public List<Bookmark> getAll(){
