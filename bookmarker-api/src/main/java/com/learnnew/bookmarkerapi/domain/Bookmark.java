@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
-@Table(name = "bookmarks")
+@Table(name = "bookmark")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -22,6 +22,4 @@ public class Bookmark {
     private Long id;
     @Column(nullable = false)
     private String title;
-    @Column(nullable = false)
-    private Instant createdAt;
 }
