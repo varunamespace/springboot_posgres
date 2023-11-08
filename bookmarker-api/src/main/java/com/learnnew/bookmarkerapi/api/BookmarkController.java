@@ -1,5 +1,6 @@
 package com.learnnew.bookmarkerapi.api;
 
+import com.learnnew.bookmarkerapi.BookmarkDTO;
 import com.learnnew.bookmarkerapi.domain.Bookmark;
 import com.learnnew.bookmarkerapi.domain.BookmarkService;
 import lombok.RequiredArgsConstructor;
@@ -22,8 +23,15 @@ public class BookmarkController {
         return "Hello bookmarks";
     }
     @RequestMapping("/bookmarks")
-    public List<Bookmark> getAll(){
-        return bookmarkService.getBookmarks();
+    public BookmarkDTO getByPage(@RequestParam(name = "page",defaultValue = "1") Integer page)
+    {
+        return bookmarkService.getBookmarks(page);
+
     }
+    @RequestMapping("/bookmark")
+    public List<Bookmark> getAll(){
+        return bookmarkService.getAllBookmarks();
+    }
+
 
 }

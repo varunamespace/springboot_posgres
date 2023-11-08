@@ -8,6 +8,7 @@ import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.Date;
 
 @Entity
 @Table(name = "bookmark")
@@ -22,4 +23,5 @@ public class Bookmark {
     private Long id;
     @Column(nullable = false)
     private String title;
+    private Instant createdAt;
 }
