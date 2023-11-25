@@ -19,7 +19,6 @@ public class BookmarkService {
     @Transactional
     public BookmarksDTO getBookmarks(Integer page){
         int pageNo = page < 1 ? 0 : page - 1;
-        System.out.println(pageNo);
         PageRequest pageable = PageRequest.of(pageNo,10, Sort.Direction.DESC,"createdAt");
         //Page<BookmarkDTO> bookmarkPage = repository.findAll(pageable).map(bookmark -> bookmarkMapper.toDto(bookmark)); bookmark to bookmarkDTO
         Page<BookmarkDTO> bookmarkPage = repository.findBookmarks(pageable);
