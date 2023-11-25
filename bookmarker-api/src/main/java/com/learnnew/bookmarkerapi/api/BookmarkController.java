@@ -23,6 +23,7 @@ public class BookmarkController {
     @RequestMapping("/bookmarks")
     public BookmarksDTO getByPage(@RequestParam(name = "page",defaultValue = "1") Integer page)
     {
+        System.out.println("bookmark");
         return bookmarkService.getBookmarks(page);
 
     }
