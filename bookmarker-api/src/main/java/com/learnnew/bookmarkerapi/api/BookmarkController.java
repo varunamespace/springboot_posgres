@@ -1,14 +1,12 @@
 package com.learnnew.bookmarkerapi.api;
 
-import com.learnnew.bookmarkerapi.domain.BookmarksDTO;
-import com.learnnew.bookmarkerapi.domain.Bookmark;
-import com.learnnew.bookmarkerapi.domain.BookmarkService;
+import com.learnnew.bookmarkerapi.domain.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Null;
 import java.util.List;
 
@@ -32,5 +30,10 @@ public class BookmarkController {
     @RequestMapping("/bookmark")
     public List<Bookmark> getAll(){
         return bookmarkService.getAllBookmarks();
+    }
+
+    @PostMapping("/bookmarks")
+    public BookmarkDTO createBookmarks(@RequestBody @Valid CreateBookmarkRequest request){
+        return bookmarkService.createBookmark(request);
     }
 }
