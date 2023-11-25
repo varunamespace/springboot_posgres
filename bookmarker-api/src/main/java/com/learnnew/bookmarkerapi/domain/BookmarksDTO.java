@@ -1,4 +1,4 @@
-package com.learnnew.bookmarkerapi;
+package com.learnnew.bookmarkerapi.domain;
 
 import com.learnnew.bookmarkerapi.domain.Bookmark;
 import lombok.Getter;
@@ -8,8 +8,8 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 @Setter
 @Getter
-public class BookmarkDTO {
-    private List<Bookmark> data;
+public class BookmarksDTO {
+    private List<BookmarkDTO> data;
     private int totalElements;
     private int totalPages;
     private int currentPage;
@@ -18,7 +18,7 @@ public class BookmarkDTO {
     private boolean hasNext;
     private boolean hasPrevious;
 //setting the value by extracting from the bookmarks page
-    public BookmarkDTO(Page<Bookmark> bookmarkPage){
+    public BookmarksDTO(Page<BookmarkDTO> bookmarkPage){
         this.setData(bookmarkPage.getContent());
         this.setTotalElements(bookmarkPage.getNumberOfElements());
         this.setTotalPages(bookmarkPage.getTotalPages());

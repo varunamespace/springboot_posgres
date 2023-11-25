@@ -11,7 +11,7 @@ import java.time.Instant;
 import java.util.Date;
 
 @Entity
-@Table(name = "bookmark")
+@Table(name="bookmarks")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
