@@ -1,4 +1,4 @@
-package com.learnnew.bookmarkerapi.domain;
+/*package com.learnnew.bookmarkerapi.domain;
 
 import org.springframework.stereotype.Component;
 
@@ -12,3 +12,4 @@ public class BookmarkMapper {
         return dto;
     }
 }
+*/

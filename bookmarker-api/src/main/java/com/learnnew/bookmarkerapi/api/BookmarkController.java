@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.constraints.Null;
 import java.util.List;
 
 @RestController
@@ -21,11 +22,12 @@ public class BookmarkController {
         return "Hello bookmarks";
     }
     @RequestMapping("/bookmarks")
-    public BookmarksDTO getByPage(@RequestParam(name = "page",defaultValue = "1") Integer page)
+    public BookmarksDTO getByPage(@RequestParam(name = "page",defaultValue = "1") Integer page,@RequestParam(name = "query",required = false) String query)
     {
-        System.out.println("bookmark");
-        return bookmarkService.getBookmarks(page);
-
+        if(query== null || query.trim().length()==0){
+            return bookmarkService.getBookmarks(page);
+        }
+        return bookmarkService.searchBookmarks(query,page);
     }
     @RequestMapping("/bookmark")
     public List<Bookmark> getAll(){
